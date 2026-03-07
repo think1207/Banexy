@@ -19,9 +19,7 @@ void main() {
   ];
 
   Widget createTestWidget({List<WordCard>? words}) {
-    return MaterialApp(
-      home: NewWordsSetupScreen(allWords: words ?? testWords),
-    );
+    return MaterialApp(home: NewWordsSetupScreen(allWords: words ?? testWords));
   }
 
   // テストの画面サイズを大きく設定するユーティリティ
@@ -29,17 +27,21 @@ void main() {
     await tester.binding.setSurfaceSize(const Size(800, 1200));
   }
 
-  testWidgets('Should display correct initial state', (WidgetTester tester) async {
+  testWidgets('Should display correct initial state', (
+    WidgetTester tester,
+  ) async {
     await setSurfaceSize(tester);
     await tester.pumpWidget(createTestWidget());
     await tester.pumpAndSettle();
 
     expect(find.text('New Words'), findsOneWidget);
     expect(find.text('Technology'), findsWidgets);
-    expect(find.text('10'), findsNWidgets(2)); 
+    expect(find.text('10'), findsNWidgets(2));
   });
 
-  testWidgets('Should change category when tapping mode card', (WidgetTester tester) async {
+  testWidgets('Should change category when tapping mode card', (
+    WidgetTester tester,
+  ) async {
     await setSurfaceSize(tester);
     await tester.pumpWidget(createTestWidget());
     await tester.pumpAndSettle();
@@ -52,7 +54,9 @@ void main() {
     expect(find.byIcon(Icons.check_circle), findsOneWidget);
   });
 
-  testWidgets('Should increment target count via + button', (WidgetTester tester) async {
+  testWidgets('Should increment target count via + button', (
+    WidgetTester tester,
+  ) async {
     await setSurfaceSize(tester);
     await tester.pumpWidget(createTestWidget());
     await tester.pumpAndSettle();
@@ -66,7 +70,9 @@ void main() {
     expect(find.text('15'), findsNWidgets(2));
   });
 
-  testWidgets('Should decrement target count via - button', (WidgetTester tester) async {
+  testWidgets('Should decrement target count via - button', (
+    WidgetTester tester,
+  ) async {
     await setSurfaceSize(tester);
     await tester.pumpWidget(createTestWidget());
     await tester.pumpAndSettle();
@@ -80,7 +86,9 @@ void main() {
     expect(find.text('5'), findsNWidgets(2));
   });
 
-  testWidgets('Should select target count from chips', (WidgetTester tester) async {
+  testWidgets('Should select target count from chips', (
+    WidgetTester tester,
+  ) async {
     await setSurfaceSize(tester);
     await tester.pumpWidget(createTestWidget());
     await tester.pumpAndSettle();
@@ -94,10 +102,17 @@ void main() {
     expect(find.text('20'), findsNWidgets(2));
   });
 
-  testWidgets('Should show snackbar when no words match category', (WidgetTester tester) async {
+  testWidgets('Should show snackbar when no words match category', (
+    WidgetTester tester,
+  ) async {
     await setSurfaceSize(tester);
     final techOnlyWords = [
-      WordCard(id: '1', text: 'Flutter', meaning: 'フラッター', category: 'Technology'),
+      WordCard(
+        id: '1',
+        text: 'Flutter',
+        meaning: 'フラッター',
+        category: 'Technology',
+      ),
     ];
 
     await tester.pumpWidget(createTestWidget(words: techOnlyWords));
@@ -109,15 +124,17 @@ void main() {
     final startButton = find.text('Start Sorting');
     await tester.ensureVisible(startButton);
     await tester.tap(startButton);
-    
+
     // スナックバーのアニメーション待機
-    await tester.pump(); 
+    await tester.pump();
     await tester.pump(const Duration(milliseconds: 500));
 
     expect(find.text('General の学習対象単語がありません！'), findsOneWidget);
   });
 
-  testWidgets('Should navigate to LearningSessionScreen on success', (WidgetTester tester) async {
+  testWidgets('Should navigate to LearningSessionScreen on success', (
+    WidgetTester tester,
+  ) async {
     await setSurfaceSize(tester);
     await tester.pumpWidget(createTestWidget());
     await tester.pumpAndSettle();
@@ -125,7 +142,7 @@ void main() {
     final startButton = find.text('Start Sorting');
     await tester.ensureVisible(startButton);
     await tester.tap(startButton);
-    
+
     await tester.pumpAndSettle();
 
     expect(find.byType(LearningSessionScreen), findsOneWidget);

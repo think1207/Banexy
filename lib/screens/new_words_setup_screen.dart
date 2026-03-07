@@ -24,8 +24,8 @@ class _NewWordsSetupScreenState extends State<NewWordsSetupScreen> {
 
   void _startSorting() {
     final candidates = widget.allWords.where((w) {
-      final categoryMatch = w.category == _selectedCategory ||
-          w.category.isEmpty;
+      final categoryMatch =
+          w.category == _selectedCategory || w.category.isEmpty;
       final notMastered = w.status != WordStatus.mastered;
       return categoryMatch && notMastered;
     }).toList();
@@ -65,8 +65,10 @@ class _NewWordsSetupScreenState extends State<NewWordsSetupScreen> {
                   Row(
                     children: [
                       IconButton(
-                        icon: const Icon(Icons.arrow_back,
-                            color: _textColorDark),
+                        icon: const Icon(
+                          Icons.arrow_back,
+                          color: _textColorDark,
+                        ),
                         onPressed: () => Navigator.pop(context),
                       ),
                       const Expanded(
@@ -86,10 +88,7 @@ class _NewWordsSetupScreenState extends State<NewWordsSetupScreen> {
                   const SizedBox(height: 16),
                   const Text(
                     '学習モードと今日の目標を選択',
-                    style: TextStyle(
-                      color: _textColorLight,
-                      fontSize: 14,
-                    ),
+                    style: TextStyle(color: _textColorLight, fontSize: 14),
                   ),
                   const SizedBox(height: 16),
                 ],
@@ -208,11 +207,15 @@ class _NewWordsSetupScreenState extends State<NewWordsSetupScreen> {
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: isSelected ? _primaryColor.withValues(alpha: 0.1) : _bgColor,
+                color: isSelected
+                    ? _primaryColor.withValues(alpha: 0.1)
+                    : _bgColor,
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: Icon(icon,
-                  color: isSelected ? _primaryColor : _textColorDark),
+              child: Icon(
+                icon,
+                color: isSelected ? _primaryColor : _textColorDark,
+              ),
             ),
             const SizedBox(width: 16),
             Expanded(
@@ -229,8 +232,10 @@ class _NewWordsSetupScreenState extends State<NewWordsSetupScreen> {
                   ),
                   Text(
                     subtitle,
-                    style:
-                    const TextStyle(fontSize: 13, color: _textColorLight),
+                    style: const TextStyle(
+                      fontSize: 13,
+                      color: _textColorLight,
+                    ),
                   ),
                 ],
               ),
@@ -318,7 +323,13 @@ class _NewWordsSetupScreenState extends State<NewWordsSetupScreen> {
           const SizedBox(height: 32),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [5, 10, 15, 20, 30].map((val) => _buildChip(val)).toList(),
+            children: [
+              5,
+              10,
+              15,
+              20,
+              30,
+            ].map((val) => _buildChip(val)).toList(),
           ),
           const SizedBox(height: 32),
           Row(

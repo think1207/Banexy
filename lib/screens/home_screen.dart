@@ -3,7 +3,6 @@ import 'package:banexy/repositories/local_word_repository.dart';
 import 'package:banexy/screens/add_word_screen.dart';
 import 'package:banexy/screens/new_words_setup_screen.dart';
 
-
 import '../models/word.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -139,7 +138,8 @@ class _HomeScreenState extends State<HomeScreen> {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (_) => NewWordsSetupScreen(allWords: _allWords),
+                        builder: (_) =>
+                            NewWordsSetupScreen(allWords: _allWords),
                       ),
                     ).then((_) => _loadData());
                   },
