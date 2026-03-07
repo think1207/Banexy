@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:learning_english/models/word.dart';
-import 'package:learning_english/screens/learning_session_screen.dart';
+import 'package:banexy/models/word.dart';
+import 'package:banexy/screens/learning_session_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:learning_english/repositories/local_word_repository.dart';
+import 'package:banexy/repositories/local_word_repository.dart';
 
 import '../models/word.dart';
 

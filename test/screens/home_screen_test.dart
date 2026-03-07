@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:learning_english/screens/add_word_screen.dart';
-import 'package:learning_english/screens/home_screen.dart';
+import 'package:banexy/screens/add_word_screen.dart';
+import 'package:banexy/screens/home_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -11,7 +11,7 @@ void main() {
 
   // Helper to set a larger screen size for tests to avoid scrolling.
   Future<void> setLargeScreenSize(WidgetTester tester) async {
-    final size = const Size(800, 1200);
+    const size = Size(800, 1200);
     await tester.binding.setSurfaceSize(size);
     tester.view.physicalSize = size;
     tester.view.devicePixelRatio = 1.0;
@@ -33,11 +33,13 @@ void main() {
 
     // After loading, content is shown
     expect(find.byType(CircularProgressIndicator), findsNothing);
-    expect(find.text('My Vocab App'), findsOneWidget);
-    expect(find.text('Total Progress'), findsOneWidget);
+    expect(find.text('Words'), findsOneWidget);
+    expect(find.text('YOUR PROGRESS'), findsOneWidget);
 
-    // Find the button by its text, which is more robust to scrolling.
-    expect(find.text('Start Session (10 Words)'), findsOneWidget);
+    // Find the action cards
+    expect(find.text('New Words'), findsOneWidget);
+    expect(find.text('Review'), findsOneWidget);
+    expect(find.text('Lists'), findsOneWidget);
   });
 
   testWidgets('HomeScreen navigates to AddWordScreen', (tester) async {
