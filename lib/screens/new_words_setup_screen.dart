@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/word.dart';
-import 'learning_session_screen.dart';
+import 'sorting_screen.dart';
 
 class NewWordsSetupScreen extends StatefulWidget {
   final List<WordCard> allWords;
@@ -37,6 +37,7 @@ class _NewWordsSetupScreenState extends State<NewWordsSetupScreen> {
           backgroundColor: Colors.redAccent,
         ),
       );
+      return;
     }
 
     candidates.shuffle();
@@ -45,7 +46,10 @@ class _NewWordsSetupScreenState extends State<NewWordsSetupScreen> {
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (_) => LearningSessionScreen(initialQueue: sessionQueue),
+        builder: (_) => SortingScreen(
+          initialQueue: sessionQueue,
+          category: _selectedCategory,
+        ),
       ),
     );
   }
@@ -140,7 +144,6 @@ class _NewWordsSetupScreenState extends State<NewWordsSetupScreen> {
                     ),
                     const SizedBox(height: 12),
 
-                    // 目標単語数設定カード
                     _buildTargetCard(),
                   ],
                 ),
@@ -196,7 +199,7 @@ class _NewWordsSetupScreenState extends State<NewWordsSetupScreen> {
           ),
           boxShadow: [
             BoxShadow(
-              color: Colors.black.withValues(alpha: 0.02),
+              color: Colors.black.withOpacity(0.02),
               blurRadius: 10,
               offset: const Offset(0, 4),
             ),
@@ -207,9 +210,7 @@ class _NewWordsSetupScreenState extends State<NewWordsSetupScreen> {
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: isSelected
-                    ? _primaryColor.withValues(alpha: 0.1)
-                    : _bgColor,
+                color: isSelected ? _primaryColor.withOpacity(0.1) : _bgColor,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Icon(
@@ -265,7 +266,7 @@ class _NewWordsSetupScreenState extends State<NewWordsSetupScreen> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.02),
+            color: Colors.black.withOpacity(0.02),
             blurRadius: 10,
             offset: const Offset(0, 4),
           ),
@@ -342,7 +343,7 @@ class _NewWordsSetupScreenState extends State<NewWordsSetupScreen> {
               Switch(
                 value: _saveAsDefault,
                 onChanged: (val) => setState(() => _saveAsDefault = val),
-                activeThumbColor: _primaryColor,
+                activeColor: _primaryColor,
               ),
             ],
           ),
