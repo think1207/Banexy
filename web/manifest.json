@@ -1,11 +1,11 @@
 {
-    "name": "learning_english",
-    "short_name": "learning_english",
+    "name": "banexy",
+    "short_name": "banexy",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Banexy is a Banana x Next x Lexicon",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

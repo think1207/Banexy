@@ -1,8 +1,6 @@
-[![Flutter CI](https://github.com/think1207/LearningEnglish/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/think1207/LearningEnglish/actions/workflows/ci.yaml)
+# banexy
 
-# learning_english
-
-A new Flutter project.
+Banexy is a Banana x Next x Lexicon
 
 ## Getting Started
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:learning_english/screens/add_word_screen.dart';
+import 'package:banexy/screens/add_word_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
