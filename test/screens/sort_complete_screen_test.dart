@@ -3,7 +3,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:banexy/models/word.dart';
 import 'package:banexy/screens/sort_complete_screen.dart';
 import 'package:banexy/screens/learning_list_screen.dart';
-import 'package:banexy/widgets/app_header.dart';
 
 void main() {
   final testWords = List.generate(
