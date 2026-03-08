@@ -5,10 +5,7 @@ import '../theme/app_colors.dart';
 class SortCompleteScreen extends StatelessWidget {
   final List<WordCard> retryList;
 
-  const SortCompleteScreen({
-    super.key,
-    required this.retryList,
-  });
+  const SortCompleteScreen({super.key, required this.retryList});
 
   @override
   Widget build(BuildContext context) {
@@ -41,10 +38,7 @@ class SortCompleteScreen extends StatelessWidget {
             SizedBox(height: 2),
             Text(
               '仕分け完了',
-              style: TextStyle(
-                color: Colors.black54,
-                fontSize: 12,
-              ),
+              style: TextStyle(color: Colors.black54, fontSize: 12),
             ),
           ],
         ),
@@ -52,7 +46,10 @@ class SortCompleteScreen extends StatelessWidget {
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
-            padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 24.0,
+              vertical: 16.0,
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -99,7 +96,7 @@ class SortCompleteScreen extends StatelessWidget {
                         color: Colors.black.withValues(alpha: 0.02),
                         blurRadius: 10,
                         offset: const Offset(0, 4),
-                      )
+                      ),
                     ],
                   ),
                   child: Column(
@@ -152,7 +149,10 @@ class SortCompleteScreen extends StatelessWidget {
                     ),
                     child: const Text(
                       'Start Learning',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
@@ -170,10 +170,7 @@ class SortCompleteScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(16),
                       ),
                     ),
-                    child: const Text(
-                      'Later',
-                      style: TextStyle(fontSize: 16),
-                    ),
+                    child: const Text('Later', style: TextStyle(fontSize: 16)),
                   ),
                 ),
               ],

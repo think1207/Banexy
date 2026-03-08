@@ -140,10 +140,7 @@ class _SortingScreenState extends State<SortingScreen> {
             SizedBox(height: 2),
             Text(
               '学習する単語を仕分け',
-              style: TextStyle(
-                color: AppColors.textLight,
-                fontSize: 12,
-              ),
+              style: TextStyle(color: AppColors.textLight, fontSize: 12),
             ),
           ],
         ),
@@ -163,7 +160,9 @@ class _SortingScreenState extends State<SortingScreen> {
 
   Widget _buildProgressHeader() {
     final processedCount = _initialCount - _currentQueue.length;
-    final progressValue = _initialCount > 0 ? processedCount / _initialCount : 1.0;
+    final progressValue = _initialCount > 0
+        ? processedCount / _initialCount
+        : 1.0;
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
@@ -182,22 +181,32 @@ class _SortingScreenState extends State<SortingScreen> {
                 ),
               ),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 4,
+                ),
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.grey.shade300),
                   borderRadius: BorderRadius.circular(16),
                 ),
                 child: Row(
                   children: [
-                    const Icon(Icons.code, size: 14, color: AppColors.textLight),
+                    const Icon(
+                      Icons.code,
+                      size: 14,
+                      color: AppColors.textLight,
+                    ),
                     const SizedBox(width: 4),
                     Text(
                       widget.category,
-                      style: const TextStyle(fontSize: 12, color: AppColors.textLight),
+                      style: const TextStyle(
+                        fontSize: 12,
+                        color: AppColors.textLight,
+                      ),
                     ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
           const SizedBox(height: 12),
@@ -238,7 +247,11 @@ class _SortingScreenState extends State<SortingScreen> {
             ),
             child: Row(
               children: [
-                Icon(Icons.cancel_outlined, color: leftOpacity > 0 ? AppColors.danger : Colors.black26, size: 18),
+                Icon(
+                  Icons.cancel_outlined,
+                  color: leftOpacity > 0 ? AppColors.danger : Colors.black26,
+                  size: 18,
+                ),
                 const SizedBox(width: 4),
                 Text(
                   "Don't know",
@@ -262,16 +275,22 @@ class _SortingScreenState extends State<SortingScreen> {
                 Text(
                   "Know",
                   style: TextStyle(
-                    color: rightOpacity > 0 ? AppColors.primary : Colors.black26,
+                    color: rightOpacity > 0
+                        ? AppColors.primary
+                        : Colors.black26,
                     fontWeight: FontWeight.bold,
                     fontSize: 14,
                   ),
                 ),
                 const SizedBox(width: 4),
-                Icon(Icons.check_circle_outline, color: rightOpacity > 0 ? AppColors.primary : Colors.black26, size: 18),
+                Icon(
+                  Icons.check_circle_outline,
+                  color: rightOpacity > 0 ? AppColors.primary : Colors.black26,
+                  size: 18,
+                ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
@@ -347,13 +366,18 @@ class _SortingScreenState extends State<SortingScreen> {
             borderRadius: BorderRadius.circular(28),
           ),
           side: BorderSide(
-            color: _history.isEmpty ? Colors.grey.shade200 : Colors.grey.shade400,
+            color: _history.isEmpty
+                ? Colors.grey.shade200
+                : Colors.grey.shade400,
           ),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.undo, color: _history.isEmpty ? Colors.black26 : AppColors.textDark),
+            Icon(
+              Icons.undo,
+              color: _history.isEmpty ? Colors.black26 : AppColors.textDark,
+            ),
             const SizedBox(width: 8),
             Text(
               'Undo',

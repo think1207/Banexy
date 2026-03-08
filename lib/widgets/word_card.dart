@@ -71,7 +71,9 @@ class _SwipeableCardState extends State<SwipeableCard>
     } else {
       _animation = Tween<Offset>(begin: _dragOffset, end: Offset.zero).animate(
         CurvedAnimation(
-            parent: _animationController, curve: Curves.easeOutBack),
+          parent: _animationController,
+          curve: Curves.easeOutBack,
+        ),
       );
 
       _animationController.reset();
@@ -152,7 +154,7 @@ class StaticCard extends StatelessWidget {
             color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 20,
             offset: const Offset(0, 10),
-          )
+          ),
         ],
       ),
       child: Column(
@@ -212,8 +214,8 @@ class StaticCard extends StatelessWidget {
                 SizedBox(width: 8),
                 Text('左右にスワイプ', style: TextStyle(color: Colors.black38)),
               ],
-            )
-          ]
+            ),
+          ],
         ],
       ),
     );

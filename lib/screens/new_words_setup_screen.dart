@@ -206,7 +206,9 @@ class _NewWordsSetupScreenState extends State<NewWordsSetupScreen> {
             Container(
               padding: const EdgeInsets.all(12),
               decoration: BoxDecoration(
-                color: isSelected ? AppColors.primary.withValues(alpha: 0.1) : AppColors.background,
+                color: isSelected
+                    ? AppColors.primary.withValues(alpha: 0.1)
+                    : AppColors.background,
                 borderRadius: BorderRadius.circular(12),
               ),
               child: Icon(

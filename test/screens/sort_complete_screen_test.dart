@@ -16,9 +16,7 @@ void main() {
   );
 
   Widget createTestWidget(List<WordCard> retryList) {
-    return MaterialApp(
-      home: SortCompleteScreen(retryList: retryList),
-    );
+    return MaterialApp(home: SortCompleteScreen(retryList: retryList));
   }
 
   testWidgets('SortCompleteScreen displays correct count and limited chips', (
