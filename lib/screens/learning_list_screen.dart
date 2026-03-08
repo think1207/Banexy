@@ -51,7 +51,10 @@ class _LearningListScreenState extends State<LearningListScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 16),
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 8,
+                ),
                 decoration: BoxDecoration(
                   color: AppColors.background,
                   borderRadius: BorderRadius.circular(20),
@@ -59,7 +62,11 @@ class _LearningListScreenState extends State<LearningListScreen> {
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    const Icon(Icons.menu_book, size: 16, color: AppColors.textLight),
+                    const Icon(
+                      Icons.menu_book,
+                      size: 16,
+                      color: AppColors.textLight,
+                    ),
                     const SizedBox(width: 8),
                     Text(
                       '${widget.wordsToLearn.length} words to learn',
@@ -77,7 +84,8 @@ class _LearningListScreenState extends State<LearningListScreen> {
             Expanded(
               child: ListView.separated(
                 itemCount: widget.wordsToLearn.length,
-                separatorBuilder: (context, index) => const Divider(height: 1, color: Color(0xFFEEEEEE)),
+                separatorBuilder: (context, index) =>
+                    const Divider(height: 1, color: Color(0xFFEEEEEE)),
                 itemBuilder: (context, index) {
                   final word = widget.wordsToLearn[index];
                   final isExpanded = _expandedCardIds.contains(word.id);
@@ -88,9 +96,7 @@ class _LearningListScreenState extends State<LearningListScreen> {
 
             Container(
               padding: const EdgeInsets.all(24),
-              decoration: BoxDecoration(
-                color: AppColors.background,
-              ),
+              decoration: BoxDecoration(color: AppColors.background),
               child: SizedBox(
                 width: double.infinity,
                 height: 56,
@@ -123,27 +129,41 @@ class _LearningListScreenState extends State<LearningListScreen> {
   }
 
   Widget _buildWordListItem(WordCard word, bool isExpanded) {
-    final displayExample = word.example.isNotEmpty ? word.example : 'The implementation of the new system took six months.';
-    final displayTranslation = word.exampleTranslation.isNotEmpty ? word.exampleTranslation : '新システムの実装には6ヶ月かかった。';
-    final displaySynonyms = word.synonyms.isNotEmpty ? word.synonyms : ['execution', 'deployment'];
+    final displayExample = word.example.isNotEmpty
+        ? word.example
+        : 'The implementation of the new system took six months.';
+    final displayTranslation = word.exampleTranslation.isNotEmpty
+        ? word.exampleTranslation
+        : '新システムの実装には6ヶ月かかった。';
+    final displaySynonyms = word.synonyms.isNotEmpty
+        ? word.synonyms
+        : ['execution', 'deployment'];
 
     return GestureDetector(
       onTap: () => _toggleExpand(word.id),
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
-        margin: isExpanded ? const EdgeInsets.symmetric(horizontal: 16, vertical: 8) : EdgeInsets.zero,
-        padding: isExpanded ? const EdgeInsets.all(20) : const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
+        margin: isExpanded
+            ? const EdgeInsets.symmetric(horizontal: 16, vertical: 8)
+            : EdgeInsets.zero,
+        padding: isExpanded
+            ? const EdgeInsets.all(20)
+            : const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: isExpanded ? BorderRadius.circular(16) : BorderRadius.zero,
-          boxShadow: isExpanded ? [
-            BoxShadow(
-              color: Colors.black.withValues(alpha: 0.08),
-              blurRadius: 20,
-              offset: const Offset(0, 10),
-            )
-          ] : [],
+          borderRadius: isExpanded
+              ? BorderRadius.circular(16)
+              : BorderRadius.zero,
+          boxShadow: isExpanded
+              ? [
+                  BoxShadow(
+                    color: Colors.black.withValues(alpha: 0.08),
+                    blurRadius: 20,
+                    offset: const Offset(0, 10),
+                  ),
+                ]
+              : [],
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -161,14 +181,20 @@ class _LearningListScreenState extends State<LearningListScreen> {
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 6,
+                  ),
                   decoration: BoxDecoration(
                     color: AppColors.background,
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: Text(
                     word.partOfSpeech.isEmpty ? 'noun' : word.partOfSpeech,
-                    style: const TextStyle(color: AppColors.textLight, fontSize: 12),
+                    style: const TextStyle(
+                      color: AppColors.textLight,
+                      fontSize: 12,
+                    ),
                   ),
                 ),
                 const SizedBox(width: 12),
@@ -178,7 +204,11 @@ class _LearningListScreenState extends State<LearningListScreen> {
                     shape: BoxShape.circle,
                     color: AppColors.background,
                   ),
-                  child: const Icon(Icons.volume_up, color: AppColors.textLight, size: 20),
+                  child: const Icon(
+                    Icons.volume_up,
+                    color: AppColors.textLight,
+                    size: 20,
+                  ),
                 ),
               ],
             ),
@@ -218,7 +248,11 @@ class _LearningListScreenState extends State<LearningListScreen> {
                             color: AppColors.textLight,
                           ),
                         ),
-                        Icon(Icons.keyboard_arrow_up, color: AppColors.textLight, size: 16),
+                        Icon(
+                          Icons.keyboard_arrow_up,
+                          color: AppColors.textLight,
+                          size: 16,
+                        ),
                       ],
                     ),
                     const SizedBox(height: 8),
@@ -255,9 +289,11 @@ class _LearningListScreenState extends State<LearningListScreen> {
               Wrap(
                 spacing: 8,
                 runSpacing: 8,
-                children: displaySynonyms.map((synonym) => _buildSynonymChip(synonym)).toList(),
+                children: displaySynonyms
+                    .map((synonym) => _buildSynonymChip(synonym))
+                    .toList(),
               ),
-            ]
+            ],
           ],
         ),
       ),
@@ -273,10 +309,7 @@ class _LearningListScreenState extends State<LearningListScreen> {
       ),
       child: Text(
         text,
-        style: const TextStyle(
-          color: AppColors.textLight,
-          fontSize: 12,
-        ),
+        style: const TextStyle(color: AppColors.textLight, fontSize: 12),
       ),
     );
   }

@@ -25,12 +25,12 @@ void main() {
   ];
 
   Widget createLearningListScreen() {
-    return MaterialApp(
-      home: LearningListScreen(wordsToLearn: testWords),
-    );
+    return MaterialApp(home: LearningListScreen(wordsToLearn: testWords));
   }
 
-  testWidgets('LearningListScreen displays correct number of words', (WidgetTester tester) async {
+  testWidgets('LearningListScreen displays correct number of words', (
+    WidgetTester tester,
+  ) async {
     await tester.pumpWidget(createLearningListScreen());
 
     expect(find.text("Today's New Words"), findsOneWidget);
@@ -39,7 +39,9 @@ void main() {
     expect(find.text('Consensus'), findsOneWidget);
   });
 
-  testWidgets('Tapping a word expands its details', (WidgetTester tester) async {
+  testWidgets('Tapping a word expands its details', (
+    WidgetTester tester,
+  ) async {
     await tester.pumpWidget(createLearningListScreen());
 
     // 最初は意味や例文が表示されていないことを確認（isExpandedがfalseの状態）
@@ -66,7 +68,9 @@ void main() {
     expect(find.text('俊敏な / アジャイル開発'), findsNothing);
   });
 
-  testWidgets('Start Check button displays SnackBar when pressed', (WidgetTester tester) async {
+  testWidgets('Start Check button displays SnackBar when pressed', (
+    WidgetTester tester,
+  ) async {
     await tester.pumpWidget(createLearningListScreen());
 
     final startCheckButton = find.text('Start Check');
@@ -85,7 +89,10 @@ void main() {
           builder: (context) => ElevatedButton(
             onPressed: () => Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => LearningListScreen(wordsToLearn: testWords)),
+              MaterialPageRoute(
+                builder: (context) =>
+                    LearningListScreen(wordsToLearn: testWords),
+              ),
             ),
             child: const Text('Go'),
           ),

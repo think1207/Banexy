@@ -137,7 +137,8 @@ class SortCompleteScreen extends StatelessWidget {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (_) => LearningListScreen(wordsToLearn: retryList),
+                          builder: (_) =>
+                              LearningListScreen(wordsToLearn: retryList),
                         ),
                       );
                     },

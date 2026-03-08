@@ -86,7 +86,9 @@ class LocalWordRepository implements BaseWordRepository {
 
     try {
       final List<dynamic> decoded = jsonDecode(jsonString);
-      return decoded.map((e) => WordCard.fromJson(e as Map<String, dynamic>)).toList();
+      return decoded
+          .map((e) => WordCard.fromJson(e as Map<String, dynamic>))
+          .toList();
     } catch (e) {
       print("Error loading data: $e");
       return List<WordCard>.from(_masterData);
