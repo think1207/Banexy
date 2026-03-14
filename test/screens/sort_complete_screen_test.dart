@@ -10,7 +10,7 @@ void main() {
     (i) => WordCard(
       id: '$i',
       text: 'Word $i',
-      meaning: 'Meaning $i',
+      meanings: ['Meaning $i'],
       category: 'test',
       partOfSpeech: 'Noun',
     ),
