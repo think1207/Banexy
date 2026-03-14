@@ -10,14 +10,14 @@ void main() {
     WordCard(
       id: '1',
       text: 'Word 1',
-      meaning: 'Meaning 1',
+      meanings: ['Meaning 1'],
       category: 'test',
       partOfSpeech: 'Noun',
     ),
     WordCard(
       id: '2',
       text: 'Word 2',
-      meaning: 'Meaning 2',
+      meanings: ['Meaning 2'],
       category: 'test',
       partOfSpeech: 'Noun',
     ),

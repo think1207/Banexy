@@ -3,10 +3,11 @@ enum WordStatus { fresh, learning, mastered }
 class WordCard {
   final String id;
   final String text;
-  final String meaning;
+  final List<String> meanings; // 配列で意味を保持
   final String category;
   final String partOfSpeech;
 
+  // 例文・類義語
   final String example;
   final String exampleTranslation;
   final List<String> synonyms;
@@ -17,7 +18,7 @@ class WordCard {
   WordCard({
     required this.id,
     required this.text,
-    required this.meaning,
+    required this.meanings,
     required this.category,
     required this.partOfSpeech,
     this.example = '',
@@ -30,7 +31,7 @@ class WordCard {
   WordCard copyWith({
     String? id,
     String? text,
-    String? meaning,
+    List<String>? meanings,
     String? category,
     String? partOfSpeech,
     String? example,
@@ -42,7 +43,7 @@ class WordCard {
     return WordCard(
       id: id ?? this.id,
       text: text ?? this.text,
-      meaning: meaning ?? this.meaning,
+      meanings: meanings ?? this.meanings,
       category: category ?? this.category,
       partOfSpeech: partOfSpeech ?? this.partOfSpeech,
       example: example ?? this.example,
@@ -54,10 +55,24 @@ class WordCard {
   }
 
   factory WordCard.fromJson(Map<String, dynamic> json) {
+    // --- 後方互換性（古いデータを読み込んだ時のための安全な処理） ---
+    List<String> loadedMeanings = [];
+    if (json['meanings'] != null) {
+      // 新しい配列データが存在する場合
+      loadedMeanings = List<String>.from(json['meanings']);
+    } else if (json['meaning'] != null) {
+      // 古い文字列形式の 'meaning' しか保存されていない場合は、自動で分割して配列化する
+      loadedMeanings = (json['meaning'] as String)
+          .split(RegExp(r'[/、]'))
+          .map((e) => e.trim())
+          .where((e) => e.isNotEmpty)
+          .toList();
+    }
+
     return WordCard(
       id: json['id'],
       text: json['text'],
-      meaning: json['meaning'],
+      meanings: loadedMeanings,
       category: json['category'],
       partOfSpeech: json['partOfSpeech'],
       example: json['example'] ?? '',
@@ -75,7 +90,7 @@ class WordCard {
     return {
       'id': id,
       'text': text,
-      'meaning': meaning,
+      'meanings': meanings,
       'category': category,
       'partOfSpeech': partOfSpeech,
       'example': example,

@@ -24,6 +24,7 @@ class _AddWordScreenState extends State<AddWordScreen> {
     _textCtrl.dispose();
     _meaningCtrl.dispose();
     _categoryCtrl.dispose();
+    _partOfSpeechCtrl.dispose();
     super.dispose();
   }
 
@@ -32,7 +33,7 @@ class _AddWordScreenState extends State<AddWordScreen> {
       final newWord = WordCard(
         id: DateTime.now().millisecondsSinceEpoch.toString(),
         text: _textCtrl.text,
-        meaning: _meaningCtrl.text,
+        meanings: [_meaningCtrl.text],
         category: _categoryCtrl.text.isNotEmpty ? _categoryCtrl.text : 'User',
         partOfSpeech: _partOfSpeechCtrl.text.isNotEmpty
             ? _partOfSpeechCtrl.text

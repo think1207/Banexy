@@ -202,7 +202,7 @@ class StaticCard extends StatelessWidget {
 
             if (isVisible) ...[
               Text(
-                card.meaning,
+                card.meanings.join(' / '),
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 20,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../models/word.dart';
 import '../theme/app_colors.dart';
 import '../widgets/app_header.dart';
+import './check_screen.dart';
 
 class LearningListScreen extends StatefulWidget {
   final List<WordCard> wordsToLearn;
@@ -85,9 +86,12 @@ class _LearningListScreenState extends State<LearningListScreen> {
                 height: 56,
                 child: ElevatedButton(
                   onPressed: () {
-                    // TODO: テスト機能（Start Check）への遷移を実装
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('チェックテスト機能は今後実装予定です！')),
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) =>
+                            CheckScreen(wordsToCheck: widget.wordsToLearn),
+                      ),
                     );
                   },
                   style: ElevatedButton.styleFrom(
@@ -196,12 +200,10 @@ class _LearningListScreenState extends State<LearningListScreen> {
               ],
             ),
 
-            // 展開時の詳細情報（意味・例文・類義語）
             if (isExpanded) ...[
               const SizedBox(height: 16),
-              // 意味
               Text(
-                word.meaning,
+                word.meanings.join(' / '),
                 style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w500,
